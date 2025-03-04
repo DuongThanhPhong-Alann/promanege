@@ -1,0 +1,273 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(
+        135deg, 
+        #e76cdd 0%, 
+        #4853eb 15%,
+        #68baf0 30%, 
+        #4ce4e9 45%,
+        #68baf0 60%, 
+        #4853eb 75%,
+        #e76cdd 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Header */
+header {
+    background: linear-gradient(
+        135deg, 
+        #0d47a1, 
+        #2aa5ca
+    );
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    grid-column: 1 / span 2;
+    border-radius: 0 0 16px 16px;
+}
+
+@keyframes gradientHeader {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Navigation */
+nav {
+    background: linear-gradient(
+        135deg, 
+        #36a6c9, 
+        #2a47ca
+    );
+    color: #fff;
+    text-align: center;
+    padding: 18px 0;
+    grid-column: 1 / span 2;
+    border-radius: 16px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #e3f2fd;
+}
+
+/* Product List */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 30px;
+    grid-column: 1;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    max-width: 350px;
+    height: 300px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Sidebar */
+.sidebar {
+    background: linear-gradient(
+        135deg, 
+        #063883, 
+        #4386c4
+    );
+    color: #fff;
+    padding: 20px;
+    grid-column: 2;
+    border-radius: 16px;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #e3f2fd;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    .sidebar {
+        grid-column: 1;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(
+        135deg, 
+        #459cd6, 
+        #1e48a1
+    );
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    grid-column: 1 / span 2;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border-radius: 16px 16px 0 0;
+}
+
+.footer-item {
+    padding: 10px;
+}
+
+.footer-item h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.footer-item p {
+    font-size: 1rem;
+    color: #e3f2fd;
+}
+
+/* Buttons */
+.button {
+    background-color: #2196f3; /* Xanh dÆ°Æ¡ng nháº¡t */
+    border: none;
+    color: #fff;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 4px 2px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1976d2; /* Xanh dÆ°Æ¡ng trung bÃ¬nh khi hover */
+}
+
+.button1 {
+    border-radius: 2px;
+}
+
+.button3 {
+    border-radius: 8px;
+}
+
+.button4 {
+    border-radius: 12px;
+}
+
+.button5 {
+    border-radius: 50%;
+}
