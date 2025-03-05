@@ -214,7 +214,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Giày Sneaker Adidas Nam Nữ Superstar 20</h4>
                         <p class="card-text">1.150.000 đ</p>
-                        <button class="btn btn-primary w-100 buy-btn">Thêm vào giỏi hàng</button>
+                        <button class="btn btn-primary w-100 buy-btn">Mua Ngay</button>
                     </div>
                 </div>
             </div>
@@ -331,25 +331,76 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById("confirmOrder").addEventListener("click", function () {
-            let name = document.getElementById("customerName").value;
-            let phone = document.getElementById("customerPhone").value;
-            let address = document.getElementById("customerAddress").value;
-            let payment = document.getElementById("paymentMethod").value;
-            
-            if (name === "" || phone === "" || address === "") {
-                alert("Vui lòng nhập đầy đủ thông tin!");
-                return;
-            }
-            
-            let successModal = `<div class='text-center'><h3>Đơn hàng đã đặt thành công!</h3>
-                                <button class='btn btn-primary' onclick='location.reload()'>Quay lại trang chủ</button></div>`;
-            
-            document.querySelector(".modal-body").innerHTML = successModal;
-            document.querySelector(".modal-footer").remove();
-        });
-    </script>
+    <style>
+    .success-modal {
+        text-align: center;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease-in-out;
+    }
+    .success-modal h3 {
+        color: #2c3e50;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .success-modal p {
+        font-size: 16px;
+        color: #555;
+        margin: 5px 0;
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        border: none;
+        border-radius: 8px;
+        padding: 10px 15px;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #0056b3, #004080);
+        transform: scale(1.05);
+    }
+</style>
+
+<script>
+    document.getElementById("confirmOrder").addEventListener("click", function () {
+        let name = document.getElementById("customerName").value;
+        let phone = document.getElementById("customerPhone").value;
+        let address = document.getElementById("customerAddress").value;
+        let payment = document.getElementById("paymentMethod").value;
+
+        if (name === "" || phone === "" || address === "") {
+            alert("Vui lòng nhập đầy đủ thông tin!");
+            return;
+        }
+
+        
+        let hiddenPhone = phone.slice(0, 2) + "*****" + phone.slice(-2);
+
+        
+        let orderID = "PN" + Math.floor(100000000 + Math.random() * 900000000);
+
+        let successModal = `
+            <div class='success-modal'>
+                <h2>🎉 Đơn hàng đặt thành công!</h2>
+                <h3><strong>Mã đơn hàng:</strong> ${orderID}</h3>
+                <h3><strong>Họ tên:</strong> ${name}</h3>
+                <h3><strong>Địa chỉ:</strong> ${address}</h3>
+                <h3><strong>Số điện thoại:</strong> ${hiddenPhone}</h3>
+                <h3><strong>Phương thức thanh toán:</strong> ${payment}</h3>
+                <button class='btn btn-primary' onclick='location.reload()'>Quay lại trang chủ</button>
+            </div>`;
+
+        document.querySelector(".modal-body").innerHTML = successModal;
+        document.querySelector(".modal-footer").remove();
+    });
+</script>
+
 
 
 
