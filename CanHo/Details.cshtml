@@ -1,0 +1,263 @@
+﻿@model QLCCCC.Models.CanHo
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết Căn Hộ - QLCCCC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        body {
+            background: linear-gradient(to right, #fdf6e4, #fef9f2);
+            font-family: 'Arial', sans-serif;
+            color: #5d4037;
+        }
+
+        .container {
+            margin-top: 30px;
+            max-width: 960px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+            .container:hover {
+                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+            }
+
+        .header-title {
+            font-size: 2rem;
+            color: #fff; /* Màu chữ trắng */
+            font-weight: 600;
+            position: absolute; /* Định vị tuyệt đối để chồng lên hình ảnh */
+            top: 50%; /* Đặt ở giữa theo chiều dọc */
+            left: 50%; /* Đặt ở giữa theo chiều ngang */
+            transform: translate(-50%, -50%); /* Dịch chuyển để căn giữa chính xác */
+            background: rgba(0, 0, 0, 0.5); /* Nền mờ để chữ dễ đọc */
+            padding: 5px 10px; /* Khoảng đệm cho nền */
+            border-radius: 5px; /* Bo góc nền */
+            text-align: center; /* Căn giữa nội dung bên trong */
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border: 1px solid #f5e6cc;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+            .info-table th, .info-table td {
+                padding: 10px;
+                font-size: 0.9rem;
+                border: 1px solid #f5e6cc;
+            }
+
+            .info-table th {
+                font-weight: 600;
+                color: #5d4037;
+                background-color: #fef9f2;
+                width: 30%;
+            }
+
+            .info-table td {
+                width: 70%;
+                color: #8d5524;
+            }
+
+        .iframe-gallery {
+            margin-top: 20px;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+            .iframe-container:hover {
+                transform: scale(1.02);
+            }
+
+            .iframe-container iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+        .description-line {
+            margin-bottom: 10px; /* Khoảng cách nhỏ hơn để gần với iframe bên dưới */
+            color: #8d5524;
+            font-size: 1rem;
+        }
+
+            .description-line strong {
+                color: #5d4037;
+            }
+
+        .description {
+            margin-top: 20px;
+            color: #8d5524;
+        }
+
+            .description strong {
+                color: #5d4037;
+            }
+
+        .image-gallery {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px; /* Khoảng cách với phần bên dưới */
+        }
+
+        .image-wrapper {
+            position: relative; /* Để định vị tiêu đề bên trong hình ảnh */
+            width: 100%; /* Chiếm toàn bộ chiều rộng của container */
+        }
+
+        .image-gallery img {
+            width: 100%; /* Chiếm toàn bộ chiều rộng của image-wrapper */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+            .image-gallery img:hover {
+                transform: scale(1.05);
+            }
+
+        .image-gallery span {
+            font-size: 1rem;
+            color: #c0392b;
+            font-style: italic;
+        }
+
+        .btn-secondary {
+            background-color: #e67e22;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+            .btn-secondary:hover {
+                background-color: #d35400;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+        .back-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-gallery">
+            @if (Model.HinhAnhCanHos != null && Model.HinhAnhCanHos.Any())
+            {
+                var hinhAnhList = Model.HinhAnhCanHos.ToList(); // Chuyển ICollection thành List
+                @for (int i = 0; i < hinhAnhList.Count; i++)
+                {
+                    <div class="image-wrapper">
+                        <img src="@hinhAnhList[i].DuongDan" alt="Hình ảnh căn hộ" />
+                    </div>
+                }
+            }
+            else
+            {
+                <span>Không có hình ảnh</span>
+            }
+        </div>
+
+        <table class="info-table">
+            <tr>
+                <th>Mã Căn:</th>
+                <td>@Model.MaCan</td>
+            </tr>
+            <tr>
+                <th>Chung Cư:</th>
+                <td>@Model.ChungCu?.Ten</td>
+            </tr>
+            <tr>
+                <th>Diện Tích:</th>
+                <td>@Model.DienTich m²</td>
+            </tr>
+            <tr>
+                <th>Số Phòng:</th>
+                <td>@Model.SoPhong</td>
+            </tr>
+            <tr>
+                <th>Giá:</th>
+                <td>@Model.Gia.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</td>
+            </tr>
+            <tr>
+                <th>Trạng Thái:</th>
+                <td>@Model.TrangThai</td>
+            </tr>
+        </table>
+
+        @if (!string.IsNullOrEmpty(Model.MoTa))
+        {
+            var moTaLines = (Model.MoTa ?? "").Split(new[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            <div class="iframe-gallery">
+                @if (Model.URLs != null && Model.URLs.Any())
+                {
+                    @for (int i = 0; i < Model.URLs.Count; i++)
+                    {
+                        @if (i < moTaLines.Count)
+                        {
+                            <div class="description-line">
+                                @moTaLines[i]
+                            </div>
+                        }
+                        <div class="iframe-container">
+                            <iframe src="@Model.URLs[i]" allowfullscreen></iframe>
+                        </div>
+                    }
+                    @if (moTaLines.Count > Model.URLs.Count)
+                    {
+                        @for (int i = Model.URLs.Count; i < moTaLines.Count; i++)
+                        {
+                            <div class="description-line">
+                                @moTaLines[i]
+                            </div>
+                        }
+                    }
+                }
+                else
+                {
+                    @foreach (var line in moTaLines)
+                    {
+                        <div class="description-line">
+                            @line
+                        </div>
+                    }
+                }
+            </div>
+        }
+
+        <div class="back-link">
+            <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
