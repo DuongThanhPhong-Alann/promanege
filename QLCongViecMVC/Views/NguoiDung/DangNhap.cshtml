@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/nguoidung/login.css" />
+}
+
+<div class="login-container" data-aos="fade-up">
+    <div class="login-card shadow">
+        <h2 class="text-center mb-4">Đăng nhập</h2>
+        <form asp-action="DangNhap" method="post">
+            <div class="form-group mb-3">
+                <label for="tenDangNhap">Tên đăng nhập / Email / SĐT</label>
+                <input name="tenDangNhap" class="form-control" placeholder="Nhập thông tin..." />
+            </div>
+            <div class="form-group mb-4">
+                <label for="matKhau">Mật khẩu</label>
+                <input name="matKhau" type="password" class="form-control" placeholder="●●●●●" />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+            <div class="text-danger mt-3 text-center">@ViewBag.Loi</div>
+        </form>
+    </div>
+</div>

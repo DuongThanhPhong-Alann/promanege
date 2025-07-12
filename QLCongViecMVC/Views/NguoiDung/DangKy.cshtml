@@ -1,0 +1,46 @@
+@model QLCongViecMVC.Models.NguoiDung
+
+@{
+    ViewData["Title"] = "Đăng ký";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/nguoidung/login.css" />
+}
+<form asp-action="DangKy" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="TenDangNhap"></label>
+        <input asp-for="TenDangNhap" class="form-control" />
+        <span asp-validation-for="TenDangNhap" class="text-danger small"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger small"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SoDienThoai"></label>
+        <input asp-for="SoDienThoai" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MatKhau"></label>
+        <input asp-for="MatKhau" type="password" class="form-control" />
+        <span asp-validation-for="MatKhau" class="text-danger small"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Xác nhận mật khẩu</label>
+        <input name="XacNhanMatKhau" type="password" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ảnh đại diện</label>
+        <input type="file" name="AnhDaiDienUpload" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Đăng ký</button>
+</form>

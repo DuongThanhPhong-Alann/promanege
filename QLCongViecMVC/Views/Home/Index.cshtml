@@ -1,0 +1,102 @@
+@{
+    ViewData["Title"] = "Trang Chủ";
+    Layout = "_Layout";
+    var daDangNhap = Context.Session.GetString("NguoiDungID") != null;
+    var tenDangNhap = Context.Session.GetString("TenDangNhap");
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/home.css" />
+}
+
+<div class="text-center" data-aos="zoom-in">
+    <h1 class="display-4">Hệ Thống Quản Lý Công Việc</h1>
+    <p class="lead">Một nền tảng thông minh giúp bạn quản lý công việc hiệu quả, khoa học và chuyên nghiệp.</p>
+</div>
+
+<hr data-aos="fade-in" />
+
+<div class="container py-4">
+    <h3 data-aos="fade-up">🎯 Mục tiêu của hệ thống</h3>
+    <p data-aos="fade-up" data-aos-delay="100">
+        Hệ thống Quản lý Công việc ra đời với sứ mệnh giúp người dùng cá nhân và nhóm làm việc dễ dàng tổ chức, phân công, theo dõi và báo cáo tiến độ công việc. 
+        Chúng tôi mong muốn tạo ra một không gian làm việc số hóa hiện đại, phù hợp với mọi mô hình từ học tập đến doanh nghiệp.
+    </p>
+
+    <h3 data-aos="fade-up">🔑 Tính năng chính</h3>
+    <ul data-aos="fade-left" data-aos-delay="100">
+        <li>Đăng ký, đăng nhập với phân quyền người dùng rõ ràng.</li>
+        <li>Quản lý công việc cá nhân & nhóm linh hoạt.</li>
+        <li>Theo dõi tiến độ công việc theo phần trăm & ngày.</li>
+        <li>Ghi nhận báo cáo tiến độ từng thành viên.</li>
+    </ul>
+
+    <h3 data-aos="fade-up">👥 Đối tượng sử dụng</h3>
+    <ul data-aos="fade-right" data-aos-delay="150">
+        <li>Sinh viên làm việc nhóm, quản lý bài tập.</li>
+        <li>Nhân viên công ty muốn theo dõi cá nhân.</li>
+        <li>Nhóm startup/freelancer đang cộng tác.</li>
+    </ul>
+
+    <h3 data-aos="fade-up">🚀 Lợi ích khi sử dụng</h3>
+    <ul data-aos="fade-up" data-aos-delay="100">
+        <li>Tăng hiệu suất và tiết kiệm thời gian.</li>
+        <li>Giảm thiểu trễ deadline hoặc công việc chồng chéo.</li>
+        <li>Trực quan, đơn giản và dễ tiếp cận.</li>
+    </ul>
+
+    <h3 data-aos="fade-up">📈 Định hướng phát triển</h3>
+    <p data-aos="fade-left">
+        Hệ thống sẽ tích hợp AI nhắc nhở, biểu đồ thống kê năng suất, thông báo thời gian thực, lịch Google và chat nhóm.
+    </p>
+</div>
+
+<hr data-aos="fade-in" />
+
+<div class="container my-5">
+    <h2 class="text-center mb-5" data-aos="fade-down">✨ Tính năng nổi bật</h2>
+
+    <div class="row align-items-center feature-block mb-5" data-aos="fade-right">
+        <div class="col-md-6 order-md-1" data-aos="zoom-in" data-aos-delay="100">
+            <img src="~/images/feature1.jpg" class="img-fluid rounded shadow" alt="Tạo công việc" />
+        </div>
+        <div class="col-md-6 order-md-2" data-aos="fade-left" data-aos-delay="200">
+            <h4>Tạo công việc linh hoạt</h4>
+            <p>Cho phép tạo công việc cá nhân hoặc nhóm, mô tả chi tiết, giao người phụ trách và thời gian cụ thể.</p>
+        </div>
+    </div>
+
+    <div class="row align-items-center feature-block mb-5 flex-md-row-reverse" data-aos="fade-left">
+        <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <img src="~/images/feature2.jpg" class="img-fluid rounded shadow" alt="Tiến độ công việc" />
+        </div>
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="200">
+            <h4>Tiến độ dễ theo dõi</h4>
+            <p>Theo dõi theo phần trăm, thời gian thực hiện, dễ dàng đánh giá tiến độ tổng thể và từng cá nhân.</p>
+        </div>
+    </div>
+
+    <div class="row align-items-center feature-block mb-5" data-aos="fade-up">
+        <div class="col-md-6 order-md-1" data-aos="zoom-in" data-aos-delay="100">
+            <img src="~/images/feature3.jpg" class="img-fluid rounded shadow" alt="Công việc nhóm" />
+        </div>
+        <div class="col-md-6 order-md-2" data-aos="fade-left" data-aos-delay="200">
+            <h4>Làm việc nhóm hiệu quả</h4>
+            <p>Quản lý nhóm, mời thành viên, phân công, theo dõi tiến độ từng người trong nhóm một cách trực quan.</p>
+        </div>
+    </div>
+</div>
+
+<hr data-aos="fade-in" />
+
+<div class="text-center my-5" data-aos="zoom-in">
+    @if (!daDangNhap)
+    {
+        <a class="btn btn-primary btn-lg m-2" asp-controller="NguoiDung" asp-action="DangNhap">Đăng nhập</a>
+        <a class="btn btn-success btn-lg m-2" asp-controller="NguoiDung" asp-action="DangKy">Đăng ký</a>
+    }
+    else
+    {
+        <a class="btn btn-outline-primary btn-lg m-2" asp-controller="CongViec" asp-action="Index">Vào hệ thống</a>
+    }
+</div>

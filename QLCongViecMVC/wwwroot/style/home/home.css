@@ -1,0 +1,169 @@
+/* --- Cài đặt tổng thể --- */
+body {
+    background-color: #f5f7fa;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1.display-4 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 30px;
+}
+
+h3 {
+    color: #34495e;
+    margin-top: 2rem;
+}
+
+p, ul li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- Nút và hiệu ứng --- */
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Gạch ngang trang trí --- */
+hr {
+    border: 0;
+    height: 3px;
+    background: linear-gradient(to right, #ccc, #aaa, #ccc);
+    width: 80%;
+    margin: 2rem auto;
+}
+
+/* --- Footer --- */
+footer {
+    font-size: 0.9rem;
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+/* --- Header navbar --- */
+.navbar {
+    font-size: 1rem;
+    background-color: #2c3e50;
+}
+
+.navbar .nav-link {
+    color: #ffffff !important;
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #ffffff !important;
+}
+
+/* --- Nút avatar tròn --- */
+.btn.rounded-circle {
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Phần giới thiệu --- */
+.container h3 {
+    border-left: 5px solid #3498db;
+    padding-left: 10px;
+    margin-bottom: 1rem;
+}
+
+.container ul {
+    margin-bottom: 1.5rem;
+}
+
+.container .btn-lg {
+    font-size: 1.1rem;
+    min-width: 180px;
+}
+
+/* --- Hiệu ứng ziczac + ảnh minh hoạ --- */
+.feature-block {
+    padding: 20px 0;
+}
+
+.feature-block h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.feature-block p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.feature-block img.img-fluid {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.4s ease;
+}
+
+.feature-block img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .feature-block {
+        text-align: center;
+    }
+
+    .feature-block img.img-fluid {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.4s ease;
+}
+}
+
+/* --- Hiệu ứng animate on scroll mặc định nếu cần --- */
+[data-aos] {
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
