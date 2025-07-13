@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Nhập mã nhóm";
+     Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/nhom/nhom.css" />
+}
+<h2 class="mb-4">🔑 Tham gia nhóm bằng mã</h2>
+
+@if (TempData["Loi"] != null)
+{
+    <div class="alert alert-danger">@TempData["Loi"]</div>
+}
+@if (TempData["ThongBao"] != null)
+{
+    <div class="alert alert-success">@TempData["ThongBao"]</div>
+}
+
+<form asp-action="GuiYeuCauThamGia" method="post" class="shadow p-4 rounded bg-white">
+    <div class="form-group mb-3">
+        <label for="maNhom" class="form-label">Nhập mã nhóm:</label>
+        <input type="text" name="maNhom" class="form-control" placeholder="Nhập ID nhóm (10 ký tự)" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Gửi yêu cầu tham gia</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary ms-2">Trang chủ</a>
+</form>

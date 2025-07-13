@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QLCongViecMVC.Data;
 using QLCongViecMVC.Models;
-
+using QLCongViecMVC.Filters;
 namespace QLCongViecMVC.Controllers
 {
+    [CheckLogin]
     public class TienDoCongViecController : Controller
     {
         private readonly ApplicationDbContext _context;

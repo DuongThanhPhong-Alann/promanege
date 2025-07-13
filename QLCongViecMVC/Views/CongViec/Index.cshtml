@@ -1,0 +1,38 @@
+@model IEnumerable<QLCongViecMVC.Models.CongViec>
+@{
+    ViewData["Title"] = "Danh sách Công việc";
+    Layout = "_Layout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/style/congviec/congviec.css" />
+}
+<h2>@ViewData["Title"]</h2>
+
+<a class="btn btn-primary mb-3" asp-action="Create">Thêm Công việc</a>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Tiêu đề</th>
+            <th>Loại</th>
+            <th>Người tạo</th>
+            <th>Nhóm</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TieuDe</td>
+            <td>@item.LoaiCongViec</td>
+            <td>@item.NguoiTao?.TenDangNhap</td>
+            <td>@item.NhomCongViec?.TenNhom</td>
+            <td>
+                <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.ID">Sửa</a>
+                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.ID">Xoá</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

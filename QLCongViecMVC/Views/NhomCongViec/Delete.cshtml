@@ -1,0 +1,27 @@
+@model QLCongViecMVC.Models.NhomCongViec
+@{
+    ViewData["Title"] = "Xác nhận xóa";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/nhom/nhom.css" />
+}
+
+<div class="card-container">
+    <div class="card delete-card">
+        <div class="card-header">
+            @ViewData["Title"]
+        </div>
+        <div class="card-body">
+            <p>Bạn có chắc chắn muốn xóa nhóm: <strong>@Model.TenNhom</strong>?</p>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="ID" />
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+                    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

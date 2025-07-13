@@ -1,0 +1,41 @@
+@model IEnumerable<QLCongViecMVC.Models.NhomCongViec>
+@{
+    ViewData["Title"] = "Danh sách nhóm công việc";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/nhom/nhom.css" />
+}
+
+<h2>Danh sách nhóm công việc</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">+ Tạo nhóm mới</a>
+
+<div class="card-container">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                @item.TenNhom
+            </div>
+            <div class="card-body">
+                <p><strong>Mã nhóm:</strong> @item.ID</p>
+                <p><strong>Mục tiêu:</strong> @item.MucTieu</p>
+                <p><strong>Thời gian:</strong> @item.NgayBatDau?.ToString("dd/MM/yyyy") - @item.NgayKetThuc?.ToString("dd/MM/yyyy")</p>
+                <p><strong>Người tạo:</strong> @item.NguoiTao?.TenDangNhap</p>
+            </div>
+            <div class="card-footer">
+                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-outline-primary">🔍 Xem</a>
+                @if (item.NguoiTaoID == Context.Session.GetString("NguoiDungID"))
+                {
+                    <a asp-controller="ThanhVienNhom" asp-action="XacNhanThanhVien" asp-route-id="@item.ID" class="btn btn-sm btn-info">
+                        ✅ Xác nhận thành viên
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-danger">Xóa</a>
+                }
+            </div>
+        </div>
+    }
+</div>

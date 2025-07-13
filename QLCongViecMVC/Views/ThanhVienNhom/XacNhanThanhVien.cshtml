@@ -1,0 +1,56 @@
+@model List<QLCongViecMVC.Models.ThanhVienNhom>
+@{
+    ViewData["Title"] = "Xác nhận thành viên";
+    var nhomID = ViewBag.NhomID as string;
+     Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/nhom/nhom.css" />
+}
+<h2 class="mb-4">📥 Yêu cầu tham gia nhóm</h2>
+
+@if (Model.Count == 0)
+{
+    <p class="text-muted">Không có yêu cầu nào đang chờ xác nhận.</p>
+}
+else
+{
+    <table class="table table-hover table-bordered bg-white shadow-sm rounded">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Tên đăng nhập</th>
+                <th>Email</th>
+                <th>Thời gian gửi</th>
+                <th class="text-center">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@Model[i].NguoiDung?.TenDangNhap</td>
+                    <td>@Model[i].NguoiDung?.Email</td>
+                    <td>@Model[i].NgayThamGia?.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td class="text-center">
+                        <form asp-action="XacNhanYeuCau" method="post" class="d-inline">
+                            <input type="hidden" name="nhomId" value="@Model[i].NhomID" />
+                            <input type="hidden" name="nguoiDungId" value="@Model[i].NguoiDungID" />
+                            <button type="submit" class="btn btn-success btn-sm">✔️ Duyệt</button>
+                        </form>
+
+                        <form asp-action="TuChoiYeuCau" method="post" class="d-inline">
+                            <input type="hidden" name="nhomId" value="@Model[i].NhomID" />
+                            <input type="hidden" name="nguoiDungId" value="@Model[i].NguoiDungID" />
+                            <button type="submit" class="btn btn-danger btn-sm">❌ Từ chối</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<a asp-action="Index" asp-controller="NhomCongViec" class="btn btn-secondary">← Quay lại danh sách nhóm</a>

@@ -1,0 +1,66 @@
+@model QLCongViecMVC.Models.NhomCongViec
+@{
+    ViewData["Title"] = "Tạo nhóm công việc";
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/style/nhom/nhom.css" />
+}
+
+<div class="card-container">
+    <div class="card create-card">
+        <div class="card-header">
+            @ViewData["Title"]
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="TenNhom"></label>
+                    <input asp-for="TenNhom" class="form-control" />
+                    <span asp-validation-for="TenNhom" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MoTa"></label>
+                    <textarea asp-for="MoTa" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MucTieu"></label>
+                    <textarea asp-for="MucTieu" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NgayBatDau"></label>
+                    <input asp-for="NgayBatDau" type="date" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="NgayKetThuc"></label>
+                    <input asp-for="NgayKetThuc" type="date" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Ảnh đại diện nhóm</label>
+                    <input type="file" name="AnhDaiDienUpload" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Chọn thành viên</label>
+                    <select name="selectedMembers" asp-items="ViewBag.ThanhVienList" class="form-control" multiple size="6"></select>
+                    <small class="form-text text-muted">Giữ Ctrl để chọn nhiều thành viên.</small>
+                </div>
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-success">Tạo nhóm</button>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

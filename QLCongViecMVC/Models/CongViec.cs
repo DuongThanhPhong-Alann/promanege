@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace QLCongViecMVC.Models
 {
     public class CongViec
@@ -10,11 +12,14 @@ namespace QLCongViecMVC.Models
         public NguoiDung? NguoiTao { get; set; }
 
         public string? NhomID { get; set; }
+
+        [ForeignKey("NhomID")]
         public NhomCongViec? NhomCongViec { get; set; }
 
         public ChiTietCongViec? ChiTiet { get; set; }
         public ICollection<PhanCongCongViec>? PhanCong { get; set; }
         public TienDoCongViec? TienDo { get; set; }
         public ICollection<TienDoThanhVien>? TienDoThanhViens { get; set; }
+        
     }
 }

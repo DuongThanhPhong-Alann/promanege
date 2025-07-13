@@ -1,0 +1,47 @@
+@model List<QLCongViecMVC.Models.ThanhVienNhom>
+@{
+    ViewData["Title"] = "Lời mời tham gia nhóm";
+    Layout = "_Layout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/style/nhom/nhom.css" />
+}
+<h2 class="mb-4">📨 Lời mời tham gia nhóm</h2>
+
+@if (!Model.Any())
+{
+    <p class="text-muted">Hiện không có lời mời nào đang chờ bạn xác nhận.</p>
+}
+else
+{
+    <table class="table table-hover table-bordered bg-white shadow-sm rounded">
+        <thead class="table-light">
+            <tr>
+                <th>#</th>
+                <th>Tên nhóm</th>
+                <th>Người tạo</th>
+                <th>Thời gian mời</th>
+                <th class="text-center">Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var tv = Model[i];
+                <tr>
+                    <td>@(i + 1)</td>
+                    <td>@tv.Nhom?.TenNhom</td>
+                    <td>@tv.Nhom?.NguoiTao?.TenDangNhap</td>
+                    <td>@tv.NgayThamGia?.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td class="text-center">
+                        <form asp-action="XacNhanLoiMoi" method="post" class="d-inline">
+                            <input type="hidden" name="nhomId" value="@tv.NhomID" />
+                            <input type="hidden" name="nguoiDungId" value="@tv.NguoiDungID" />
+                            <button class="btn btn-success btn-sm">✔️ Đồng ý</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

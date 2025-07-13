@@ -1,0 +1,272 @@
+/* --- Cài đặt chung --- */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: center;
+}
+
+/* --- Card chính --- */
+.card {
+    width: 100%;
+    max-width: 350px; /* For Index view */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Card header --- */
+.card-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+/* --- Card body --- */
+.card-body p {
+    margin: 0.75rem 0;
+    font-size: 1rem;
+    color: #34495e;
+}
+
+.card-body hr {
+    border-top: 1px solid #eee;
+    margin: 1rem 0;
+}
+
+.card-body h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+}
+
+.card-body ul {
+    margin: 0.75rem 0;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    color: #34495e;
+}
+
+.card-body .text-muted {
+    font-style: italic;
+    color: #777;
+}
+
+/* --- Form trong card --- */
+.card-body form {
+    width: 100%;
+}
+
+.card-body .form-group {
+    margin-bottom: 20px;
+}
+
+.card-body .form-group label {
+    font-weight: 600;
+    color: #34495e;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.card-body .form-control {
+    border-radius: 8px;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.card-body .form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.card-body textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.card-body select[multiple] {
+    height: auto;
+    min-height: 150px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+}
+
+.card-body .text-danger.small {
+    font-size: 0.85rem;
+}
+
+.card-body small.form-text {
+    font-style: italic;
+    color: #777;
+}
+
+/* --- Card footer --- */
+.card-footer {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.card-footer .btn {
+    padding: 10px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card-footer .btn-outline-primary {
+    border-color: #3498db;
+    color: #3498db;
+}
+
+.card-footer .btn-outline-primary:hover {
+    background-color: #3498db;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.2);
+}
+
+.card-footer .btn-info {
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+}
+
+.card-footer .btn-info:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(41, 128, 185, 0.2);
+}
+
+.card-footer .btn-warning {
+    background-color: #f1c40f;
+    border: none;
+    color: #fff;
+}
+
+.card-footer .btn-warning:hover {
+    background-color: #d4ac0d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(212, 172, 13, 0.2);
+}
+
+.card-footer .btn-danger {
+    background-color: #e74c3c;
+    border: none;
+    color: #fff;
+}
+
+.card-footer .btn-danger:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(192, 57, 43, 0.2);
+}
+
+.card-footer .btn-primary {
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+}
+
+.card-footer .btn-primary:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(41, 128, 185, 0.2);
+}
+
+.card-footer .btn-success {
+    background-color: #2ecc71;
+    border: none;
+    color: #fff;
+}
+
+.card-footer .btn-success:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(39, 174, 96, 0.2);
+}
+
+.card-footer .btn-secondary {
+    background-color: #bdc3c7;
+    border: none;
+    color: #fff;
+}
+
+.card-footer .btn-secondary:hover {
+    background-color: #95a5a6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(149, 165, 166, 0.2);
+}
+
+/* --- Create view specific --- */
+.card.create-card {
+    max-width: 720px; /* Larger for Create view form */
+}
+
+/* --- Details view specific --- */
+.card.details-card {
+    max-width: 600px; /* Larger for Details view */
+}
+
+/* --- Delete view specific --- */
+.card.delete-card {
+    max-width: 500px; /* For Delete view */
+}
+
+/* --- Edit view specific --- */
+.card.edit-card {
+    max-width: 720px; /* Larger for Edit view form, same as Create */
+}
+
+/* --- Animation --- */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .card-header {
+        font-size: 1.1rem;
+    }
+
+    .card-body p, .card-body ul, .card-body .form-control {
+        font-size: 0.9rem;
+    }
+
+    .card-footer .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .card-body select[multiple] {
+        min-height: 100px;
+    }
+}

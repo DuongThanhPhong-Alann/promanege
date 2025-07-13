@@ -1,0 +1,43 @@
+@model QLCongViecMVC.Models.CongViec
+@{
+    ViewData["Title"] = "Thêm Công việc";
+    Layout = "_Layout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/style/congviec/congviec.css" />
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="TieuDe" class="form-label"></label>
+        <input asp-for="TieuDe" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LoaiCongViec" class="form-label"></label>
+        <select asp-for="LoaiCongViec" class="form-select">
+            <option value="CaNhan">Cá Nhân</option>
+            <option value="Nhom">Nhóm</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Người tạo</label>
+        <input class="form-control" value="@Context.Session.GetString("TenDangNhap")" readonly />
+    </div>
+
+    <!-- Gửi ID người tạo trong form (ẩn) -->
+    <input type="hidden" name="NguoiTaoID" value="@Context.Session.GetString("NguoiDungID")" />
+
+    <div class="mb-3">
+        <label asp-for="NhomID" class="form-label">Nhóm Công Việc (nếu có)</label>
+        <select asp-for="NhomID" class="form-select" asp-items="ViewBag.NhomID">
+            <option value="">-- Không thuộc nhóm --</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Lưu</button>
+    <a class="btn btn-secondary" asp-action="Index">Quay lại</a>
+</form>

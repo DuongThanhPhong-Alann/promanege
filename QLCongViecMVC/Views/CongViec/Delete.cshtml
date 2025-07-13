@@ -1,0 +1,32 @@
+@model QLCongViecMVC.Models.CongViec
+
+@{
+    ViewData["Title"] = "Xóa công việc";
+    Layout = "_Layout";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/style/congviec/congviec.css" />
+}
+
+<h2>Xác nhận xóa</h2>
+
+<div>
+    <h4>Bạn có chắc muốn xóa công việc này?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Tiêu đề</dt>
+        <dd class="col-sm-9">@Model.TieuDe</dd>
+
+        <dt class="col-sm-3">Người tạo</dt>
+        <dd class="col-sm-9">@Model.NguoiTao?.TenDangNhap</dd>
+
+        <dt class="col-sm-3">Loại</dt>
+        <dd class="col-sm-9">@Model.LoaiCongViec</dd>
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="ID" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

@@ -282,3 +282,10 @@ EXEC sp_rename 'TienDoCongViec', 'TienDoCongViecs';
 EXEC sp_rename 'TienDoThanhVien', 'TienDoThanhViens';
 EXEC sp_rename 'VaiTro', 'VaiTros';
 EXEC sp_rename 'VaiTroNguoiDung', 'VaiTroNguoiDungs';
+
+
+ALTER TABLE ThanhVienNhoms
+ADD TrangThai NVARCHAR(20) NOT NULL DEFAULT 'ChoDuyet';
+
+ALTER TABLE ThanhVienNhoms
+ADD NgayThamGia DATETIME NULL DEFAULT GETDATE();

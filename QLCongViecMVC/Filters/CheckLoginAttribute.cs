@@ -7,11 +7,14 @@ namespace QLCongViecMVC.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            var session = context.HttpContext.Session;
-            if (string.IsNullOrEmpty(session.GetString("NguoiDungID")))
+            var httpContext = context.HttpContext;
+            var isLoggedIn = httpContext.Session.GetString("NguoiDungID") != null;
+
+            if (!isLoggedIn)
             {
                 context.Result = new RedirectToActionResult("DangNhap", "NguoiDung", null);
             }
+
             base.OnActionExecuting(context);
         }
     }

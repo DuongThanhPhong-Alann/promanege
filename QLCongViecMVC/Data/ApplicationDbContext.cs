@@ -60,6 +60,19 @@ namespace QLCongViecMVC.Data
             modelBuilder.Entity<CongViec>().Property(c => c.ID).HasMaxLength(12);
             modelBuilder.Entity<NhomCongViec>().Property(n => n.ID).HasMaxLength(12);
             modelBuilder.Entity<HinhAnh>().Property(h => h.ID).HasMaxLength(12);
+
+            modelBuilder.Entity<CongViec>()
+            .HasOne(c => c.NhomCongViec)
+            .WithMany()
+            .HasForeignKey(c => c.NhomID);
+
+             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CongViec>()
+                .HasOne(cv => cv.NhomCongViec)
+                .WithMany(n => n.CongViecs)
+                .HasForeignKey(cv => cv.NhomID)
+                .HasConstraintName("FK_CongViec_NhomCongViec");
         }
     }
 }

@@ -2,9 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLCongViecMVC.Data;
 using QLCongViecMVC.Models;
-
+using QLCongViecMVC.Filters;
 namespace QLCongViecMVC.Controllers
 {
+    [CheckLogin]
     public class VaiTroController : Controller
     {
         private readonly ApplicationDbContext _context;

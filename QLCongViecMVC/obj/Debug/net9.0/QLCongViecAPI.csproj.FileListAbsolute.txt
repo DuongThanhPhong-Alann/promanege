@@ -332,4 +332,6 @@ C:\Users\duong\promanege\QLCongViecMVC\obj\Debug\net9.0\QLCongViecAPI.genruntime
 C:\Users\duong\promanege\QLCongViecMVC\obj\Debug\net9.0\ref\QLCongViecAPI.dll
 C:\Users\duong\promanege\QLCongViecMVC\bin\Debug\net9.0\QLCongViecAPI.staticwebassets.runtime.json
 C:\Users\duong\promanege\QLCongViecMVC\obj\Debug\net9.0\compressed\xa3lwjyylq-ihtelzguct.gz
-C:\Users\duong\promanege\QLCongViecMVC\obj\Debug\net9.0\compressed\g3gecpw34j-jl9w585xxb.gz
+C:\Users\duong\promanege\QLCongViecMVC\obj\Debug\net9.0\compressed\cv6jvcc3wf-51b3iadfj3.gz
+C:\Users\duong\promanege\QLCongViecMVC\obj\Debug\net9.0\compressed\kpkeuoohxj-03528uxm9e.gz
+C:\Users\duong\promanege\QLCongViecMVC\obj\Debug\net9.0\compressed\g3gecpw34j-lbvrqfmwgb.gz
